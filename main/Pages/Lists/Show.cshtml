@@ -1,0 +1,27 @@
+﻿@page
+@model main.Pages.Lists.ShowModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.ProductsList)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.price</td>
+            <td>@item.count</td>
+        </tr>
+    }
+
+
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+﻿@page
+@using System.Data.SqlClient;
+@{
+    String id = Request.Query["id"];
+
+    String connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=admin_csv;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+    using SqlConnection connection = new(connectionString);
+    connection.Open();
+    String sql = "DELETE FROM lists WHERE id = @id";
+    using SqlCommand command = new(sql, connection);
+    command.Parameters.AddWithValue("@id", id);
+    command.ExecuteNonQuery();
+
+
+    String sqlProduct = "DELETE FROM products WHERE lists_id = @id";
+    using SqlCommand commandProduct = new(sqlProduct, connection);
+    commandProduct.Parameters.AddWithValue("@id", id);
+    commandProduct.ExecuteNonQuery();
+
+    Response.Redirect("/Lists/Index");
+}
