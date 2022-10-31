@@ -31,7 +31,7 @@ namespace main.Pages.Lists
             using SqlConnection connection = new(connectionString);// соединен
             connection.Open();
             String sql = "INSERT INTO lists (name) VALUES (@name); SELECT SCOPE_IDENTITY()";
-            using SqlCommand command = new(sql, connection);// строк  баз
+            using SqlCommand command = new(sql, connection);
             command.Parameters.AddWithValue("@name", fileName);
             var modified = command.ExecuteScalar();
             command.Parameters.Clear();

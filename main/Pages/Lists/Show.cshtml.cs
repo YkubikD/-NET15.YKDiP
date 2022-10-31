@@ -16,12 +16,12 @@ namespace main.Pages.Lists
         {
             String id = Request.Query["id"];
 
-            String connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=admin_csv;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            using SqlConnection connection = new(connectionString);
+            String connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=admin_csv;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";   //путь к SQL
+            using SqlConnection connection = new(connectionString);    
             connection.Open();
 
 
-            SqlCommand commandProduct = new SqlCommand("SELECT * FROM products WHERE lists_id = @id", connection);
+            SqlCommand commandProduct = new SqlCommand("SELECT * FROM products WHERE lists_id = @id", connection);   //SQL 
             commandProduct.Parameters.AddWithValue("@id", id);
             SqlDataReader readerProduct = commandProduct.ExecuteReader();
 
