@@ -16,3 +16,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+h1 span.bl {
+    display: block;
+}
+
+.bl {
+    color: blue;
+    font-size: 110%;
+}
+
+nav a.active{
+    font-weight: bold;
+}

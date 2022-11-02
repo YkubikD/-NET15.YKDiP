@@ -36,12 +36,8 @@
 </table>
 
 <h2>Export</h2>
-<form method="get" action="/Lists/Export">
 
-    <select multiple class="form-control" name="id[]">
-        @foreach(var item in Model.ListLists){
-            <option value="@item.id">@item.name</option>
-        }
-    </select>
+<form method="get" action="/Lists/Export">
+    <input type="text" class="form-control" name="ids">
     <input type="submit" class="btn btn-primary btn-sm">
-</form>
+ </form>

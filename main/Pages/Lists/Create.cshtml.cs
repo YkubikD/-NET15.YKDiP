@@ -17,6 +17,8 @@ namespace main.Pages.Lists
         public List<ProductsInfo> ProductsList = new();
         public void OnGet()
         {
+
+
         }
 
         public void OnPost(IFormFile file)

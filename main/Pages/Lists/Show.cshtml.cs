@@ -14,7 +14,7 @@ namespace main.Pages.Lists
 
         public void OnGet()
         {
-            String id = Request.Query["id"];
+            String id = Request.Query["id"];  //брать ид браузера
 
             String connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=admin_csv;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";   //путь к SQL
             using SqlConnection connection = new(connectionString);    

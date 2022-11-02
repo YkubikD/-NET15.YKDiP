@@ -1,8 +1,43 @@
 ﻿@page
-@using System.Data.SqlClient;
+@model main.Pages.Lists.ExportModel
 @{
-    string[] id = Request.Query["id"];
-
 }
+<form enctype="multipart/form-data" method="post">
 
-<p>@id</p>
+    <div class="container my-5">
+        <header class="my-5">
+            <h1 class="text-center" style="font-family: Arial;">Скачивание файлов</h1>
+            <p class="lead text-center">Скачивание с закрытого каталога</p>
+        </header>
+        <div class="row">
+            <div class="col-sm-12 col-md-8 offset-md-2">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Список файлов</th>
+                                <th>Размер, байт</th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var file in Model.ListFiles)
+                            {
+                                <tr>
+                                    <td>@file.Name</td>
+                                    <td>@file.Length</td>
+                                    <td>                                               @*передачв названия файлов*@
+                                        <button class="btn btn-primary" type="submit" asp-route-file="@file.Name" asp-route-mode="memory">Memory</button>
+                                        <button class="btn btn-primary" type="submit" asp-route-file="@file.Name" asp-route-mode="stream">Stream</button>
+                                        <button class="btn btn-primary" type="submit" asp-route-file="@file.Name" asp-route-mode="bytes">Bytes</button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </form>
